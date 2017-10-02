@@ -1,0 +1,8 @@
+C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.csproj.CoreCompileInputs.cache
+C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.AssemblyInfoInputs.cache
+C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.AssemblyInfo.cs
+C:\users\joseph\source\MovieLists\MovieLists.DB\bin\Debug\netcoreapp2.0\MovieLists.DB.deps.json
+C:\users\joseph\source\MovieLists\MovieLists.DB\bin\Debug\netcoreapp2.0\MovieLists.DB.dll
+C:\users\joseph\source\MovieLists\MovieLists.DB\bin\Debug\netcoreapp2.0\MovieLists.DB.pdb
+C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.dll
+C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.pdb

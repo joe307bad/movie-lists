@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace CMMI_CC.DB
+namespace MovieLists.DB
 {
     public class ContextFactory : IDesignTimeDbContextFactory<Context>
     {
@@ -14,7 +14,7 @@ namespace CMMI_CC.DB
         {
             var builder = new DbContextOptionsBuilder<Context>();
             builder.UseSqlServer(
-                "Server=./SQLEXPRESS;Database=CMMICC;Trusted_Connection=True;MultipleActiveResultSets=true");
+                "Server=./SQLEXPRESS;Database=MovieLists;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             return new Context(builder.Options);
         }

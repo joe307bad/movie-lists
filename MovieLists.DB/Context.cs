@@ -4,26 +4,30 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CMMI_CC.DB
+namespace MovieLists.DB
 {
     public class Context : DbContext
     {
         public Context(DbContextOptions options) : base(options) { }
-        public DbSet<Restaurant> Restaurants { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<MovieList> MovieLists { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Restaurant>().ToTable("Restaurants");
-            modelBuilder.Entity<Review>().ToTable("Reviews");
-            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Movie>().ToTable("Movies");
+            modelBuilder.Entity<Genre>().ToTable("Genres");
+            modelBuilder.Entity<MovieList>().ToTable("MovieLists");
+            modelBuilder.Entity<Rating>().ToTable("Ratings");
+            modelBuilder.Entity<User>().ToTable("User");
             base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=CMMICC;Integrated Security=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=MovieLists;Integrated Security=True;MultipleActiveResultSets=True;");
         }
 
         public override int SaveChanges()

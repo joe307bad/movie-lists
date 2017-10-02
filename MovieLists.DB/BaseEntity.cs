@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace CMMI_CC.DB
+namespace MovieLists.DB
 {
     public class BaseEntity
     {

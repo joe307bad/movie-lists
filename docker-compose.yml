@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  movielists.api:
+    image: movielists.api
+    build:
+      context: ./MovieLists.API
+      dockerfile: Dockerfile

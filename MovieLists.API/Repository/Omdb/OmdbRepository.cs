@@ -35,7 +35,10 @@ namespace MovieLists.API.Repository
             var movieResults = ombdResults.OmdbResultToApiResult();
             var movieResultIds = movieResults.Select(_ => _.ImdbId);
 
-            var movieRatings = _context.Ratings.Where(_ => movieResultIds.Any(mrid => mrid == _.Movie.ImdbId));
+            var ratings = _context.Ratings;
+            var movieRatings = new List<Rating>();
+            if(ratings.Any())
+                movieRatings = _context.Ratings.Where(_ => movieResultIds.Any(mrid => mrid == _.Movie.ImdbId)).ToList();
 
             if (movieRatings.Any())
             {

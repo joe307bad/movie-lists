@@ -59,7 +59,7 @@ namespace MovieLists.API.Repository
         public async Task<RatingDTO> Update(RatingDTO rating, UserDTO user)
         {
             var updateRating = _context.Ratings.FirstOrDefault(_ => _.Id == rating.Id);
-            updateRating.Score = updateRating.Score;
+            updateRating.Score = rating.Score;
 
             _context.Ratings.Update(updateRating);
             await _context.SaveChangesAsync();

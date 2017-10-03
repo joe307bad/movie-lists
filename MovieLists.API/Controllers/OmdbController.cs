@@ -34,18 +34,28 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        //[HttpGet("[action]/{id:string}", Name = "GetSingleOmdbResult")]
-        //public IActionResult GetSingle(MovieDTO movie, UserDTO user)
-        //{
-        //    try
-        //    {
-        //        var result = _omdbRepository.GetOne(movie, user);
-        //        return Ok(result);
-        //    }
-        //    catch (HttpRequestException httpRequestException)
-        //    {
-        //        return BadRequest(httpRequestException.Message);
-        //    }
-        //}
+        [HttpGet("[action]")]
+        public IActionResult GetSingle(string movieImdbId, Guid userId)
+        {
+            try
+            {
+                var movie = new MovieDTO
+                {
+                    ImdbId = movieImdbId
+                };
+
+                var user = new UserDTO
+                {
+                    Id = userId
+                };
+
+                var result = _omdbRepository.GetOne(movie, user);
+                return Ok(result);
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                return BadRequest(httpRequestException.Message);
+            }
+        }
     }
 }

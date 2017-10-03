@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MovieLists.API.Controllers
 {
+    [Route("api/[controller]")]
     public class RatingsController : Controller
     {
         private IRatingRepository _ratingsRepository;
@@ -16,10 +17,11 @@ namespace MovieLists.API.Controllers
         public RatingsController(IRatingRepository ratingsRepository) => _ratingsRepository = ratingsRepository;
         
         [HttpPost]
-        public async Task<IActionResult> Index([FromBody]RatingDTO rating, UserDTO user)
+        public async Task<IActionResult> Create(RatingDTO rating)
         {
             try
             {
+                var user = rating.User;
                 var newRating = await _ratingsRepository.Insert(rating, user);
                 return Ok(newRating);
             }
@@ -29,11 +31,12 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        [HttpPut, Route("[action]/{id}")]
-        public IActionResult Update(RatingDTO rating, UserDTO user)
+        [HttpPut("{id:Guid}")]
+        public IActionResult Update(Guid id, RatingDTO rating)
         {
             try
             {
+                var user = rating.User;
                 var editRating = _ratingsRepository.Update(rating, user);
                 return Ok(editRating);
             }

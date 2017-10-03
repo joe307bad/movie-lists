@@ -1,0 +1,54 @@
+﻿@import '../../../assets/styles/mixins.scss';
+
+:host {
+    position: fixed;
+    z-index: 1;
+}
+
+h1 {
+    color: white;
+    padding: 6px;
+    float: left;
+}
+
+#main-nav {
+    height: 50px;
+    background-color: $primary;
+    z-index: 1;
+    position: relative;
+
+    ul {
+        float: right;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+
+        li {
+            float: left;
+            color: $light;
+            border-left: 2px solid $shakespeare;
+
+            a {
+                display: block;
+                padding: 15px 20px 10px 50px;
+                height: 50px;
+
+                &:before {
+                    background-color: $tertiary;
+                }
+            }
+
+            &.link-active a:before {
+                transform: translateY(0) !important;
+            }
+
+            i {
+                padding-right: 5px;
+                position: absolute;
+                left: 17px;
+                font-size: 21px;
+                top: 13px;
+            }
+        }
+    }
+}

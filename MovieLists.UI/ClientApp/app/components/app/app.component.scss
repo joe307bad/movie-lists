@@ -1,0 +1,81 @@
+﻿@import '../../../assets/styles/mixins.scss';
+
+/* #region Fonts */
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_semibold-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNovaBold';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_bold-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_bold_italic-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_bold_italic-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'ProximaNova_Condensed';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_condensed_regular-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_condensed_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova_Condensed';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_condensed_semibold-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_condensed_semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova_Condensed';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_condensed_regular_italic-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_condensed_regular_italic-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'ProximaNova_Condensed';
+    src: url('../../../assets/fonts/Proxima/proxima_nova_condensed_bold-webfont.woff2') format('woff2'), url('../../../assets/fonts/Proxima/proxima_nova_condensed_bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+/* #endregion Fonts*/
+
+
+html, body {
+    @include ProximaNova();
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    @include ProximaNova();
+    margin: 0px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        color: inherit;
+        text-decoration: none !important;
+    }
+}
+
+#main{
+    top:60px;
+}
+
+table td {
+    padding-right: 50px;
+}

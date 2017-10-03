@@ -7,6 +7,7 @@ const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
     const isDevBuild = !(env && env.prod);
+    console.log("isDevBuild: " + isDevBuild);
     const sharedConfig = {
         stats: { modules: false },
         context: __dirname,
@@ -17,11 +18,23 @@ module.exports = (env) => {
         },
         module: {
             rules: [
-                { test: /\.ts$/, include: /ClientApp/, use: isDevBuild ? ['awesome-typescript-loader?silent=true', 'angular2-template-loader'] : '@ngtools/webpack' },
+                { test: /\.ts$/, use: isDevBuild ? ['awesome-typescript-loader?silent=true', 'angular2-template-loader', 'angular2-router-loader'] : '@ngtools/webpack' },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
-                { test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
+                {
+                    test: /\.(scss|css)$/, use: [
+                        'to-string-loader',
+                        isDevBuild ? 'css-loader' : 'css-loader?minimize',
+                        isDevBuild ? 'sass-loader' : 'sass-loader?minimize']
+                },
+                { test: /\.(woff|woff2)(\?|$)/, use: 'url-loader?limit=100000' },
+                //{ test: /\.scss$/, use: [ 'to-string-loader', isDevBuild ? 'sass-loader' : 'sass-loader?minimize' ] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
+        },
+        node: {
+            fs: "empty",
+            net: "empty",
+            tls: "empty"
         },
         plugins: [new CheckerPlugin()]
     };

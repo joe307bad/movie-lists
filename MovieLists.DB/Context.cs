@@ -13,7 +13,7 @@ namespace MovieLists.DB
         public DbSet<Genre> Genres { get; set; }
         public DbSet<MovieList> MovieLists { get; set; }
         public DbSet<Rating> Ratings { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace MovieLists.DB
             modelBuilder.Entity<Genre>().ToTable("Genres");
             modelBuilder.Entity<MovieList>().ToTable("MovieLists");
             modelBuilder.Entity<Rating>().ToTable("Ratings");
-            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<User>().ToTable("Users");
             base.OnModelCreating(modelBuilder);
         }
 

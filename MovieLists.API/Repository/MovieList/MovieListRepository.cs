@@ -1,4 +1,5 @@
-﻿using MovieLists.API.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieLists.API.DTO;
 using MovieLists.DB;
 using System;
 using System.Collections.Generic;
@@ -67,25 +68,50 @@ namespace MovieLists.API.Repository
 
         public async Task<MovieListDTO> AddMovie(MovieListDTO movieList, MovieDTO movie)
         {
-            var updateMovieList = _context.MovieLists.FirstOrDefault(_ => _.Id == movieList.Id);
-            var addMovie = _context.Movies.FirstOrDefault(_ => _.Id == movie.Id);
+            var updateMovieList = _context.MovieLists.Include("Movies").FirstOrDefault(_ => _.Id == movieList.Id);
 
-            if (addMovie == null)
+            var movieAlreadyAdded = false;
+            if (updateMovieList.Movies != null)
+                movieAlreadyAdded = updateMovieList.Movies.Any(_ => _.ImdbId == movie.ImdbId);
+
+            if (!movieAlreadyAdded)
             {
-                var newMovie = new Movie
+                var addMovie = new Movie
                 {
                     ImdbId = movie.ImdbId,
                     PosterUrl = movie.PosterUrl,
                     Release = movie.Release,
                     Title = movie.Title
                 };
-                _context.Movies.Add(newMovie);
+                _context.Movies.Add(addMovie);
+                await _context.SaveChangesAsync();
+
+                if (updateMovieList.Movies == null)
+                    updateMovieList.Movies = new List<Movie>();
+
+                updateMovieList.Movies.Add(addMovie);
+                _context.MovieLists.Update(updateMovieList);
+
                 await _context.SaveChangesAsync();
             }
 
-            updateMovieList.Movies.Add(addMovie);
-            _context.MovieLists.Update(updateMovieList);
-            await _context.SaveChangesAsync();
+            return MovieListDTO.Populate(updateMovieList);
+        }
+
+        public async Task<MovieListDTO> RemoveMovie(MovieListDTO movieList, MovieDTO movie)
+        {
+            var updateMovieList = _context.MovieLists.Include("Movies").FirstOrDefault(_ => _.Id == movieList.Id);
+            if (updateMovieList.Movies != null)
+            {
+                var removeMovie = updateMovieList.Movies.FirstOrDefault(_ => _.ImdbId == movie.ImdbId);
+
+                if (removeMovie != null)
+                {
+                    updateMovieList.Movies.Remove(removeMovie);
+                    _context.MovieLists.Update(updateMovieList);
+                    await _context.SaveChangesAsync();
+                }
+            }
 
             return MovieListDTO.Populate(updateMovieList);
         }

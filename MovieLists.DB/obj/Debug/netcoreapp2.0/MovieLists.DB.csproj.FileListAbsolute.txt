@@ -6,3 +6,4 @@ C:\users\joseph\source\MovieLists\MovieLists.DB\bin\Debug\netcoreapp2.0\MovieLis
 C:\users\joseph\source\MovieLists\MovieLists.DB\bin\Debug\netcoreapp2.0\MovieLists.DB.pdb
 C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.dll
 C:\users\joseph\source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.pdb
+C:\Users\Joseph\Source\MovieLists\MovieLists.DB\obj\Debug\netcoreapp2.0\MovieLists.DB.csprojResolveAssemblyReference.cache

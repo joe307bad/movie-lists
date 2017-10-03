@@ -1,0 +1,13 @@
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.csprojResolveAssemblyReference.cache
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.csproj.CoreCompileInputs.cache
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.AssemblyInfoInputs.cache
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.AssemblyInfo.cs
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.API.deps.json
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.API.runtimeconfig.json
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.API.runtimeconfig.dev.json
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.API.dll
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.API.pdb
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.DB.dll
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\bin\Debug\netcoreapp2.0\MovieLists.DB.pdb
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.dll
+C:\Users\Joseph\Source\MovieLists\MovieLists.API\obj\Debug\netcoreapp2.0\MovieLists.API.pdb

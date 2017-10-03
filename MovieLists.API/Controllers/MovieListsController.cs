@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace MovieLists.API.Controllers
 {
+    [Route("api/[controller]")]
     public class MovieListsController : Controller
     {
         private IMovieListRepository _movieListRepository;
 
         public MovieListsController(IMovieListRepository movieListRepository) => _movieListRepository = movieListRepository;
-        
+
         [HttpPost]
-        public async Task<IActionResult> Index([FromBody]MovieListDTO movieList)
+        public async Task<IActionResult> Create(MovieListDTO movieList)
         {
             try
             {
@@ -30,7 +31,7 @@ namespace MovieLists.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult GetAllMovieLists()
         {
             try
             {
@@ -43,8 +44,8 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Index(Guid id)
+        [HttpGet("{id:Guid}", Name = "GetSingleMovieList")]
+        public IActionResult GetSingle(Guid id)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        [HttpDelete, Route("[action]/{id}")]
+        [HttpDelete("{id:Guid}")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -71,12 +72,12 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        [HttpPut, Route("[action]/{id}")]
-        public IActionResult Edit(Guid id)
+        [HttpPut("{id:Guid}")]
+        public IActionResult Update(Guid id, MovieListDTO movieList)
         {
             try
             {
-                var editedMovieList = _movieListRepository.Update(id);
+                var editedMovieList = _movieListRepository.Update(movieList);
                 return Ok(editedMovieList);
             }
             catch (HttpRequestException httpRequestException)
@@ -85,12 +86,34 @@ namespace MovieLists.API.Controllers
             }
         }
 
-        [HttpPut, Route("[action]/{id}")]
-        public IActionResult AddMovie(MovieListDTO movieList, MovieDTO movie)
+        [HttpPut("[action]/{id:Guid}")]
+        public IActionResult AddMovie(Guid id, MovieDTO movie)
         {
             try
             {
+                var movieList = new MovieListDTO
+                {
+                    Id = id
+                };
                 var editedMovieList = _movieListRepository.AddMovie(movieList, movie);
+                return Ok(editedMovieList);
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                return BadRequest(httpRequestException.Message);
+            }
+        }
+
+        [HttpPut("[action]/{id:Guid}")]
+        public IActionResult RemoveMovie(Guid id, MovieDTO movie)
+        {
+            try
+            {
+                var movieList = new MovieListDTO
+                {
+                    Id = id
+                };
+                var editedMovieList = _movieListRepository.RemoveMovie(movieList, movie);
                 return Ok(editedMovieList);
             }
             catch (HttpRequestException httpRequestException)

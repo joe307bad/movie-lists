@@ -44,8 +44,10 @@ namespace MovieLists.API
                     .AllowCredentials());
             });
             services.AddMvc()
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver()); ;
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddScoped<IMovieListRepository, MovieListRepository>();
+            services.AddScoped<IOmdbRepository, OmdbRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
 
         }
 

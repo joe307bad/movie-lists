@@ -11,7 +11,7 @@ using System;
 namespace MovieLists.DB.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20171002145031_InitialMigration")]
+    [Migration("20171002234417_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,7 +118,7 @@ namespace MovieLists.DB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MovieLists.DB.Movie", b =>

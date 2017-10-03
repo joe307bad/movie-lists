@@ -16,6 +16,7 @@ namespace MovieLists.API.Repository
         #region PUT Methods
         Task<MovieListDTO> Update(MovieListDTO movieList);
         Task<MovieListDTO> AddMovie(MovieListDTO movieList, MovieDTO movie);
+        Task<MovieListDTO> RemoveMovie(MovieListDTO movieList, MovieDTO movie);
         #endregion PUT Methods
 
         #region POST Methods

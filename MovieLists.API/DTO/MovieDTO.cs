@@ -13,7 +13,7 @@ namespace MovieLists.API.DTO
         public DateTime Release { get; set; }
         public string PosterUrl { get; set; }
         public RatingDTO UserRating { get; set; }
-        public int AverageOverallRating { get; set }
+        public int AverageOverallRating { get; set; }
 
         public static MovieDTO Populate(Movie movie)
         {

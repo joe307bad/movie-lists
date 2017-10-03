@@ -8,7 +8,7 @@ namespace MovieLists.API.DTO
 {
     public class RatingDTO : BaseDTO
     {
-        public Score Score { get; set; }
+        public DB.Score Score { get; set; }
         public UserDTO User { get; set; }
         public MovieDTO Movie { get; set; }
 
@@ -17,20 +17,10 @@ namespace MovieLists.API.DTO
             return new RatingDTO
             {
                 Score = rating.Score,
-                User = rating.User,
-                Movie = rating.Movie
+                User = rating.User != null ? UserDTO.Populate(rating.User) : new UserDTO(),
+                Movie = rating.Movie != null ? MovieDTO.Populate(rating.Movie) : new MovieDTO()
             };
         }
     }
-
-    public enum Score
-    {
-        UNRATED,
-        ZERO_STARS,
-        ONE_STAR,
-        TWO_STARS,
-        THREE_STARS,
-        FOUR_STARS,
-        FIVE_STARS
-    }
+    
 }

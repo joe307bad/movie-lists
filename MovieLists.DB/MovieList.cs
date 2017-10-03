@@ -6,8 +6,8 @@ namespace MovieLists.DB
 {
     public class MovieList : BaseEntity
     {
-        public string Name;
-        public User User;
-        public List<Movie> Movies;
+        public string Name { get; set; }
+        public User User { get; set; }
+        public List<Movie> Movies { get; set; }
     }
 }
